@@ -1,15 +1,28 @@
 let video = document.getElementById("video");
+let newbtn = document.getElementById("newVid");
 let vidLink = [
-  "https://www.youtube.com/watch?v=nDq6TstdEi8",
-  "https://www.youtube.com/watch?v=7BrIJrjxVxA",
-  "https://www.youtube.com/watch?v=CqIjxQcAbuU",
+  "https://www.youtube.com/embed/7BrIJrjxVxA",
+  "https://www.youtube.com/embed/nDq6TstdEi8",
+  "https://www.youtube.com/embed/CqIjxQcAbuU",
 ];
 
 function vidSelect() {
   // square brackets are needed to access the index
-  let vidRec = vidLink[Math.floor(Math.random() * vidLink.length)];
-  return vidRec;
-  video.innerHTML = ``;
+  // if the vidlink array is empty display out of vids
+  // put this before the array is modified
+  if (vidLink.length === 0) {
+    video.innerHTML = `<p> you have run out of videos, refrsh to start again.</p>`;
+    return;
+  }
+  // set the index to a random selection
+  let index = Math.floor(Math.random() * vidLink.length);
+  // sets the index for the vidLink
+  let vidRec = vidLink[index];
+  console.log(vidRec);
+  video.innerHTML = `<iframe width="426" height="240" src="${vidRec}"></iframe>`;
+  // takes in the index and removes the video currently selected from the array
+  // splice takes in an index
+  vidLink.splice(index, 1);
 }
 
-console.log(vidSelect());
+newbtn.addEventListener("click", vidSelect);

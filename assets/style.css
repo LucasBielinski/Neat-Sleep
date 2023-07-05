@@ -1,0 +1,19 @@
+.title {
+  text-align: center;
+}
+
+.desc {
+  text-align: center;
+  text-overflow: ellipsis;
+}
+
+.videohold {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+}
