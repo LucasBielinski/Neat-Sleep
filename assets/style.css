@@ -17,3 +17,16 @@
   display: flex;
   justify-content: center;
 }
+
+body {
+  background-image: url(./images/stars2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  overflow: hidden;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
