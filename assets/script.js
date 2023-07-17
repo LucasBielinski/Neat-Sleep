@@ -12,6 +12,7 @@ function vidSelect() {
   // put this before the array is modified
   if (vidLink.length === 0) {
     video.innerHTML = `<p> you have run out of videos, refrsh to start again.</p>`;
+    newbtn.classList.add("hidden");
     return;
   }
   // set the index to a random selection
@@ -24,5 +25,9 @@ function vidSelect() {
   // splice takes in an index
   vidLink.splice(index, 1);
 }
+// window will close after 3 hours
+setTimeout(() => {
+  window.close();
+}, 10800000);
 
 newbtn.addEventListener("click", vidSelect);
