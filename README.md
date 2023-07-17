@@ -1,8 +1,8 @@
-# Neat Sleep
+# Neat Sleep(WIP)
 
 ## Description
 
-This is a passion project of mine. It is a white noise machiene for your computer! Simply click the new video button, to be given a new video option, when you find one you like, sleep away! If you don't want your internet running all night, don't worry! The site exits itself after 3 hours.
+This is a passion project of mine. It is a white noise machiene for your computer! 
 
 ## Installation
 
