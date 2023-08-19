@@ -1,5 +1,6 @@
 let video = document.getElementById("video");
 let newbtn = document.getElementById("newVid");
+let twenbtn = document.getElementById("twenty");
 let vidLink = [
   "https://www.youtube.com/embed/7BrIJrjxVxA",
   "https://www.youtube.com/embed/nDq6TstdEi8",
@@ -25,21 +26,29 @@ function vidSelect() {
   // splice takes in an index
   vidLink.splice(index, 1);
 }
-// window will close after 3 hours
+// flag setting fulltime to false
 let fullTime = false;
-
-function twentyFour() {
-  let count;
-  let fullTime = !fullTime;
-
-  if (fullTime === false) {
-    count = setTimeout(() => {
-      window.close();
-    }, 10800000);
-  } else {
+// sets full time to the opposite
+function switcher() {
+  fullTime = !fullTime;
+  // if true clears counter and gives alert, everytime button is clicked, it checks
+  if (fullTime === true) {
     clearTimeout(count);
     alert("24 hour mood is active\nto deactivate click the button again");
+  } else {
+    // if false calls closure
+    closer();
   }
+}
+// sets timeout, count is set timeout so it can be cleared
+function closer() {
+  count = setTimeout(() => {
+    // window will close after 3 hours
+    window.close();
+  }, 10800000);
 }
 
 newbtn.addEventListener("click", vidSelect);
+twenbtn.addEventListener("click", switcher);
+// calls automatically if twenbtn is clicked it will be interuppted
+closer();

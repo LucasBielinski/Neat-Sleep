@@ -18,6 +18,12 @@
   justify-content: center;
 }
 
+.all {
+  position: absolute;
+  left: 80rem;
+  top: 40rem;
+}
+
 body {
   background-image: url(./images/stars2.jpg);
   background-repeat: no-repeat;
