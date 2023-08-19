@@ -26,8 +26,20 @@ function vidSelect() {
   vidLink.splice(index, 1);
 }
 // window will close after 3 hours
-setTimeout(() => {
-  window.close();
-}, 10800000);
+let fullTime = false;
+
+function twentyFour() {
+  let count;
+  let fullTime = !fullTime;
+
+  if (fullTime === false) {
+    count = setTimeout(() => {
+      window.close();
+    }, 10800000);
+  } else {
+    clearTimeout(count);
+    alert("24 hour mood is active\nto deactivate click the button again");
+  }
+}
 
 newbtn.addEventListener("click", vidSelect);
