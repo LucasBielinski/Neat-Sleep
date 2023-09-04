@@ -1,14 +1,36 @@
 let video = document.getElementById("video");
 let newbtn = document.getElementById("newVid");
 let twenbtn = document.getElementById("twenty");
-let vidLink = [
+let allVids = [
   "https://www.youtube.com/embed/7BrIJrjxVxA",
   "https://www.youtube.com/embed/nDq6TstdEi8",
   "https://www.youtube.com/embed/CqIjxQcAbuU",
 ];
+let snowVid = ["https://www.youtube.com/embed/7BrIJrjxVxA"];
+let thunderVid = ["https://www.youtube.com/embed/nDq6TstdEi8"];
+let animalVid = ["https://www.youtube.com/embed/CqIjxQcAbuU"];
+// must be declared globally in order to be used in all functions.
+let vidLink;
+document.addEventListener("DOMContentLoaded", function () {
+  let answer = prompt(
+    'Please select what kind of video you would like to see. Enter "snow", "storm", "animal" or "all"'
+  );
+
+  // // square brackets are needed to access the index
+  if (answer === "snow" || answer === "Snow") {
+    vidLink = snowVid;
+  } else if (answer === "storm" || answer === "Storm") {
+    vidLink = thunderVid;
+  } else if (answer === "animal" || answer === "Animal") {
+    vidLink = animalVid;
+  } else if (answer === "all" || answer === "All" || !answer) {
+    vidLink = allVids;
+  } else {
+    return (video.innerHTML = `<p> you may have mispelled something, please refresh and try again.</p>`);
+  }
+});
 
 function vidSelect() {
-  // square brackets are needed to access the index
   // if the vidlink array is empty display out of vids
   // put this before the array is modified
   if (vidLink.length === 0) {
