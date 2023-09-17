@@ -10,29 +10,45 @@ let snowVid = ["https://www.youtube.com/embed/7BrIJrjxVxA"];
 let thunderVid = ["https://www.youtube.com/embed/nDq6TstdEi8"];
 let animalVid = ["https://www.youtube.com/embed/CqIjxQcAbuU"];
 // must be declared globally in order to be used in all functions.
-let vidLink;
+
 document.addEventListener("DOMContentLoaded", function () {
   let answer = prompt(
     'Please select what kind of video you would like to see. Enter "snow", "storm", "animal" or "all"'
   );
+  let vidLink;
 
   // // square brackets are needed to access the index
-  if (answer === "snow" || answer === "Snow") {
-    vidLink = snowVid;
-  } else if (answer === "storm" || answer === "Storm") {
-    vidLink = thunderVid;
-  } else if (answer === "animal" || answer === "Animal") {
-    vidLink = animalVid;
-  } else if (answer === "all" || answer === "All" || !answer) {
-    vidLink = allVids;
-  } else {
-    return (video.innerHTML = `<p> you may have mispelled something, please refresh and try again.</p>`);
+  switch (answer.toLowerCase()) {
+    case "snow":
+      vidLink = snowVid;
+      break;
+
+    case "storm":
+      vidLink = thunderVid;
+      break;
+
+    case "animal":
+      vidLink = animalVid;
+      break;
+
+    case "all":
+    case "":
+      vidLink = allVids;
+      break;
+
+    default:
+      video.innerHTML = `<p> you may have mispelled something, please refresh and try again.</p>`;
+      return;
   }
+  newbtn.addEventListener("click", function () {
+    vidSelect(vidLink);
+  });
 });
 
-function vidSelect() {
+function vidSelect(vidLink) {
   // if the vidlink array is empty display out of vids
   // put this before the array is modified
+  console.log(vidLink);
   if (vidLink.length === 0) {
     video.innerHTML = `<p> you have run out of videos, refrsh to start again.</p>`;
     newbtn.classList.add("hidden");
@@ -70,7 +86,6 @@ function closer() {
   }, 10800000);
 }
 
-newbtn.addEventListener("click", vidSelect);
 twenbtn.addEventListener("click", switcher);
 // calls automatically if twenbtn is clicked it will be interuppted
 closer();
