@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let answer = prompt(
     'Please select what kind of video you would like to see. Enter "snow", "storm", "animal" or "all"'
   );
+  tellTime();
   let vidLink;
 
   // // square brackets are needed to access the index
@@ -85,7 +86,31 @@ function closer() {
     window.close();
   }, 10800000);
 }
-
+// DayJS is finicky, hardest part so far
+function tellTime() {
+  let clock = document.getElementById("time");
+  let morning = dayjs("6:00 am", "h:mm A");
+  let morningEnd = dayjs("11:59 pm", "h:mm A");
+  let noon = dayjs("12:00 pm", "h:mm A");
+  let noonEnd = dayjs("4:59 pm", "h:mm A");
+  function update() {
+    // methods wont work if its not an object, must be brought in full
+    let currentTime = dayjs();
+    let isTime;
+    if (currentTime.isBefore(morningEnd) && currentTime.isAfter(morning)) {
+      isTime = "Good Morning";
+    } else if (currentTime.isBefore(noonEnd) && currentTime.isAfter(noon)) {
+      isTime = "Good Afternoon";
+    } else {
+      isTime = "Good Night";
+    }
+    clock.innerHTML = `${isTime} it is currently\n${currentTime.format(
+      "h:mm A"
+    )}`;
+  }
+  // updates every second
+  setInterval(update, 1000);
+}
 twenbtn.addEventListener("click", switcher);
 // calls automatically if twenbtn is clicked it will be interuppted
 closer();
