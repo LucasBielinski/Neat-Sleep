@@ -9,13 +9,16 @@ let allVids = [
 let snowVid = ["https://www.youtube.com/embed/7BrIJrjxVxA"];
 let thunderVid = ["https://www.youtube.com/embed/nDq6TstdEi8"];
 let animalVid = ["https://www.youtube.com/embed/CqIjxQcAbuU"];
+let modal = document.getElementById("mymodal");
+let form = document.getElementById("theForm");
+let selected = form.value;
 // must be declared globally in order to be used in all functions.
 
-document.addEventListener("DOMContentLoaded", function () {
-  let answer = prompt(
-    'Please select what kind of video you would like to see. Enter "snow", "storm", "animal" or "all"'
-  );
+function formsbmit(e) {
+  e.preventDefault();
+  let answer = selected;
   tellTime();
+  modal.classList.add("hidden");
   let vidLink;
 
   // // square brackets are needed to access the index
@@ -41,10 +44,46 @@ document.addEventListener("DOMContentLoaded", function () {
       video.innerHTML = `<p> you may have mispelled something, please refresh and try again.</p>`;
       return;
   }
+  // anonymous function due to issues transfering input an anonymous function is called here
   newbtn.addEventListener("click", function () {
     vidSelect(vidLink);
   });
-});
+}
+// document.addEventListener("DOMContentLoaded", function () {
+//   let answer = prompt(
+//     'Please select what kind of video you would like to see. Enter "snow", "storm", "animal" or "all"'
+//   );
+//   tellTime();
+//   let vidLink;
+
+//   // // square brackets are needed to access the index
+//   switch (answer.toLowerCase()) {
+//     case "snow":
+//       vidLink = snowVid;
+//       break;
+
+//     case "storm":
+//       vidLink = thunderVid;
+//       break;
+
+//     case "animal":
+//       vidLink = animalVid;
+//       break;
+
+//     case "all":
+//     case "":
+//       vidLink = allVids;
+//       break;
+
+//     default:
+//       video.innerHTML = `<p> you may have mispelled something, please refresh and try again.</p>`;
+//       return;
+//   }
+//   // anonymous function due to issues transfering input an anonymous function is called here
+//   newbtn.addEventListener("click", function () {
+//     vidSelect(vidLink);
+//   });
+// });
 
 function vidSelect(vidLink) {
   // if the vidlink array is empty display out of vids

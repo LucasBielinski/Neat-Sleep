@@ -71,3 +71,17 @@ body {
 header {
   padding: 20px;
 }
+
+.form {
+  background-color: #69779e;
+}
+
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-color: #2e4482;
+}
