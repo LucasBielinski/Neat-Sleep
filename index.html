@@ -8,16 +8,18 @@
   </head>
   <body>
     <div class="modal" id="mymodal">
-      <form class="form" id="theForm" onsubmit="formsbmit(e)">
-        <input type="radio" id="choice1" name="choice1" value="all" />
+      <!-- it is better for them to have the same name when they are radio buttons -->
+      <!-- this way, when one is selected, the others will deselect. -->
+      <form class="form" id="theForm">
+        <input type="radio" id="choice1" name="choice" value="all" />
         <label for="choice1">I want to see all the vids</label>
-        <input type="radio" id="choice2" name="choice2" value="snow" />
+        <input type="radio" id="choice2" name="choice" value="snow" />
         <label for="choice2">I want to see snow vids</label>
-        <input type="radio" id="choice3" name="choice3" value="storm" />
+        <input type="radio" id="choice3" name="choice" value="storm" />
         <label for="choice3">I want to see storm videos</label>
-        <input type="radio" id="choice4" name="choice4" value="animal" />
+        <input type="radio" id="choice4" name="choice" value="animal" />
         <label for="choice4">I want to see animal vids</label>
-        <input type="submit" value="submit" />
+        <button id="sbmit">submit</button>
       </form>
     </div>
     <header>

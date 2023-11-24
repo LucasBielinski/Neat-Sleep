@@ -68,16 +68,30 @@ body {
   display: none;
 }
 
+.none {
+  display: none;
+}
+
 header {
   padding: 20px;
 }
 
 .form {
-  background-color: #69779e;
+  display: flex;
+  flex-direction: column;
+}
+
+form input[type="radio"] {
+  margin-bottom: 5px;
+}
+
+form label {
+  margin-bottom: 20px;
 }
 
 .modal {
   display: flex;
+
   align-items: center;
   justify-content: center;
   height: 100%;
