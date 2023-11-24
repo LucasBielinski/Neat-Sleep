@@ -7,6 +7,21 @@
     <title>Neat-Sleep</title>
   </head>
   <body>
+    <div class="modal" id="mymodal">
+      <!-- it is better for them to have the same name when they are radio buttons -->
+      <!-- this way, when one is selected, the others will deselect. -->
+      <form class="form" id="theForm">
+        <input type="radio" id="choice1" name="choice" value="all" />
+        <label for="choice1">I want to see all the vids</label>
+        <input type="radio" id="choice2" name="choice" value="snow" />
+        <label for="choice2">I want to see snow vids</label>
+        <input type="radio" id="choice3" name="choice" value="storm" />
+        <label for="choice3">I want to see storm videos</label>
+        <input type="radio" id="choice4" name="choice" value="animal" />
+        <label for="choice4">I want to see animal vids</label>
+        <button id="sbmit">submit</button>
+      </form>
+    </div>
     <header>
       <h1 class="title">Neat-Sleep</h1>
       <div id="timehold">
